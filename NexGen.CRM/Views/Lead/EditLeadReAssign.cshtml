@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Lead Re-Assign";
+}
+
+@model NexGen.Repository.Leads.EntityLeads
+
+
+
+<div class="container-fluid mt-4 p-0 verifier-content" id="divAdd" runat="server">
+    <div class="m-0 mx-5 mt-4 bg-white verifier-sec ">
+        <div class="row p-0">
+            <div class="col-12 card-info">
+                <div class="row m-5 justify-content-between">
+                    <h5 id="lblUserInformation" runat="server">Lead Information</h5>
+                </div>
+                <form id="form1" enctype="multipart/form-data" asp-controller="Lead" asp-action="UpdateLeadReAssign">
+                    <div class="row m-4 justify-content-between" style="border-bottom: none;">
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Company Name</label>
+                                <input type="text" class="form-control"  disabled required asp-for="Company_Name" id="txtcompanyname">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Enquiry Number</label>
+                                <input type="text" class="form-control" required asp-for="EnquiryNumber" id="txtenquirynumber" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Company Details</label>
+                                <textarea rows="4" class="form-control" required disabled asp-for="Company_Details" id="txtcompanydetails"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">City</label>
+                                <input type="text" class="form-control" disabled asp-for="City" id="txtcity">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Country</label>
+                                <input type="text" class="form-control" disabled asp-for="Country" id="txtcountry">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Sector/Industry</label>
+                                <select data-control="select2" ID="ddlIndustrySector" disabled required asp-for="Sector" Class="form-control">
+                                    <option value="" disabled selected hidden>--Please Select--</option>
+                                    <option>Health Care</option>
+                                    <option>Importer</option>
+                                    <option>Exporter</option>
+                                    <option>Contractor</option>
+                                    <option>Trader</option>
+                                    <option>Manufacturer</option>
+                                    <option>Online Business</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Contact Person</label>
+                                <input type="text" class="form-control" asp-for="ContactPerson" disabled required id="txtcontactperson">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Designation</label>
+                                <input type="text" class="form-control" asp-for="Designation" disabled required id="txtdesignation">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Mobile Number</label>
+                                <input type="text" class="form-control" asp-for="MobileNumber" disabled required id="txtmobilenumber">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">E-Mail Id</label>
+                                <input type="text" class="form-control" asp-for="EmailID" disabled required id="txtEmailId">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-5 justify-content-between">
+                        <h5 id="H1" runat="server">Lead Source Information</h5>
+                    </div>
+                    <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Lead Source</label>
+                                <select data-control="select2" disabled asp-for="LeadSource" required ID="ddlLeadSource" Class="form-control">
+                                    <option value="" disabled selected hidden>--Please Select--</option>
+                                    <option>LinkedIn</option>
+                                    <option>Website</option>
+                                    <option>Facebook Ads</option>
+                                    <option>Google Ads</option>
+                                    <option>Website Chat</option>
+                                    <option>Website Form</option>
+                                    <option>Validation Lead</option>
+                                    <option>Calendly</option>
+                                    <option>Scrapping Lead</option>
+                                    <option>Email Marketing Lead</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Instrument Value</label>
+                                <input type="text" class="form-control" disabled asp-for="InstrumentValue" required id="txtinsrumentvalue" runat="server">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="">Assigned To</label>
+                                <input type="text" class="form-control" pattern="^\S(.*\S)?$" placeholder="Xxxx@euroeximbank-sales.com" asp-for="AssignedTo_MailID" id="txtSalesTeam" required>
+                                @* <select data-control="select2" ID="ddlSalesAgentName" asp-for="AssignedTo" runat="server" required Class="form-control" AutoPostBack="true">
+                                <option value="" disabled selected hidden>--Please Select--</option>
+                                <option>Selva</option>
+                                </select> *@
+                            </div>
+                        </div>
+                        <div style="padding-top:20px;" class="col-md-12">
+                            <!--begin::Label-->
+                            <!--end::Label-->
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <button asp-action="LeadReAssign" formnovalidate class="btnback">Back</button>
+                            <button class="btnsave">Update</button>
+                            <!--end::Input-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        var textboxes = document.querySelectorAll('input[type="text"]');
+        var isValid = true;
+
+        textboxes.forEach(function (textbox) {
+            // Trim the value of the textbox
+            var trimmedValue = textbox.value.trim();
+
+            // Check if the trimmed value is empty
+            if (trimmedValue === '') {
+                isValid = false;
+                return;
+            }
+        });
+
+        if (!isValid) {
+            alert('Textboxes cannot be empty or contain only spaces!');
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+</script>
+@*<script>
+    function functionUpdate() {
+        Swal.fire({
+            title: "Are you sure want to Update this ?",
+            //text: "You clicked the button!",
+            icon: "success"
+        });
+    }
+</script>*@

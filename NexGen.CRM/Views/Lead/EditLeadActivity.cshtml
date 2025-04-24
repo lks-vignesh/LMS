@@ -1,0 +1,336 @@
+﻿@{
+    ViewData["Title"] = "Update Lead Activity";
+}
+
+@model NexGen.Repository.Leads.EntityLeads
+
+<form id="form1" enctype="multipart/form-data" asp-controller="Lead">
+
+    <div class="container-fluid mt-4 p-0 verifier-content" >
+        <div class="m-0 mx-5 mt-4 bg-white verifier-sec">
+            <div class="row p-0">
+                <div class="col-12 card-info" >
+                    <div class="card">
+                        <div class="card-header" style="background-color: #06283a;min-height:40px;">
+                            <h4 class="card-title" style="color: azure;">Lead Information</h4>
+                        </div>
+                    </div>
+                    <div class="tab-content" style="border: 3px solid #06283a;">
+                        <!--begin::Tab pane-->
+
+                        <div class="row m-4 justify-content-between" style="border-bottom: none;">
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Company Name</label>
+                                    <input type="text" class="form-control" asp-for="Company_Name" id="txtcompanyname" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Enquiry Number</label>
+                                    <input type="text" class="form-control" asp-for="EnquiryNumber" id="txtenquirynumber" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Company Details</label>
+                                    <textarea rows="4" class="form-control" asp-for="Company_Details" id="txtcompanydetails" disabled></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">City</label>
+                                    <input type="text" class="form-control" asp-for="City" id="txtcity" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Country</label>
+                                    <input type="text" class="form-control" asp-for="Country" id="txtcontactperson" disabled>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Sector/Industry</label>
+                                    <input type="text" class="form-control" asp-for="Sector" id="txtcontactperson" disabled>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Contact Person</label>
+                                    <input type="text" class="form-control" asp-for="ContactPerson" id="txtcontactperson" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Designation</label>
+                                    <input type="text" class="form-control" asp-for="Designation" id="txtdesignation" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Mobile Number</label>
+                                    <input type="text" class="form-control" asp-for="MobileNumber" id="txtmobilenumber" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">E-Mail Id</label>
+                                    <input type="text" class="form-control" asp-for="EmailID" id="txtemailID" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-5 justify-content-between">
+                            <h5 id="H1" runat="server">Lead Source Information</h5>
+                        </div>
+                        <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Lead Source</label>
+                                    <input type="text" class="form-control" asp-for="LeadSource" id="txtcontactperson" disabled>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Instrument Value</label>
+                                    <select data-control="select2" asp-for="InstrumentValue" ID="ddlInstrumentvalue" required Class="form-control" disabled>
+                                        <option value="" disabled selected hidden>--Please Select--</option>
+                                        <option>50000 USD to 1 Million USD</option>
+                                        <option>1 Million USD to 2 Million USD</option>
+                                        <option>2 Million USD to 5 Million USD</option>
+                                        <option>5 Million USD to 10 Million USD</option>
+                                        <option>10 Million USD and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Alternate Mobile Number</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="AlternativeMobileNumber" id="txtAlternativeMobileNumber" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Alternate Email ID</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="[^@@\s]+@@[^@@\s]+\.[^@@\s]+" asp-for="AlternateEmail" id="txtAlternateEmail" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for=""> Alternate Company Name</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="AlternateCompanyName" id="txtAlternateCompanyName" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid mt-4 p-0 verifier-content">
+        <div class="m-0 mx-5 mt-4 bg-white verifier-sec">
+            <div class="row p-0">
+                <div class="col-12 card-info">
+                    <div class="card">
+                        <div class="card-header" style="background-color: #06283a;min-height:40px;">
+                            <h4 class="card-title" style="color: azure;">Lead Activities</h4>
+                        </div>
+                    </div>
+                    <div class="tab-content" style="border: 3px solid #06283a;">
+                        <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                            <div class="col-lg-6" visible="false" runat="server">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Contact Date</label>
+                                        <input type="date" onkeypress="return false" class="form-control" asp-for="ContactDate" id="txtContactDate" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Follow-up Date</label>
+                                        <input type="date" onkeypress="return false" class="form-control" asp-for="Follow_upDate" id="txtFollowupdate" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="required form-label">Followup-Stage</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <select data-control="select2" required="required" id="ddlstage" pattern="^\S(.*\S)?$" asp-for="FollowUpStage"
+                                                class="form-control"
+                                                asp-items="@(new SelectList(ViewBag.FSlist,"Followup_Stage", "Followup_Stage"))">
+                                            <option value="" disabled selected hidden>Select an option</option>
+                                        </select>
+                                        <!--end::Input-->
+                                    </div>
+                                    @* <div class="col-md-6">
+                                        <label for="">Followup-Stage</label>
+                                        <select data-control="select2" ID="ddlstage" pattern="^\S(.*\S)?$" asp-for="FollowUpStage" required Class="form-control">
+                                            <option value="" disabled selected hidden>---Please Select---</option>
+                                            <option>Contacted through call or whatsapp or email</option>
+                                            <option>Customer Not picking up the call​, whatsapp and email sent</option>
+                                            <option>Customer Not Responding</option>
+                                            <option>Customer Not Interested</option>
+                                            <option>Customer Looking For Fund</option>
+                                            <option>Customer Not Applied</option>
+                                            <option>Customer Email & Contact Number Invalid</option>
+                                            <option>Application form Shared to customer​</option>
+                                            <option>Sample draft issued</option>
+                                            <option>EKYC Document Submitted</option>
+                                            <option>Waiting for EKYC payment​​</option>
+                                            <option>Awaiting for beneficiery acceptance</option>
+                                            <option>Waiting for the Payment</option>
+                                            <option>WaitingFortheInstrumentPayment​​​</option>
+                                            <option>Made Ekyc Payment</option>
+                                            <option>Made Instrument Payment</option>
+                                        </select>
+                                    </div> *@
+                                    <div class="col-md-12">
+                                        <label for="">Remarks</label>
+                                        <textarea rows="4" class="form-control" pattern="^\S(.*\S)?$" asp-for="Remarks"  id="txtremarks"></textarea>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-lg-6" visible="false" runat="server">
+                                <!--begin::Table-->
+                                <table class="table align-middle table-row-dashed fs-6 gy-8" id="tblLeadActivities">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <!--begin::Table row-->
+                                        <tr>
+                                            <th><b>Date</b></th>
+                                            <th><b>FollowUp Date</b></th>
+                                            <th><b>FollowUp Stage</b></th>
+                                            <th><b>Remarks</b></th>
+                                            <th><b>Lead Status</b></th>
+                                        </tr>
+                                        <!--end::Table row-->
+                                    </thead>
+                                    <!--end::Table head-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                        </div>
+                        <div style="padding-top:20px;padding-left:10px;padding-right:10px;" class="col-md-12">
+                            <button asp-action="LeadActivities" formnovalidate class="btnback">Back</button>
+                            <button asp-action="AddLeadActivity" class="btnsave">Update</button>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script>
+    window.onload = function () {
+        var textarea = document.getElementById('txtremarks');
+
+        textarea.addEventListener('input', function () {
+            var text = textarea.value.trim(); // Remove leading and trailing whitespace
+            if (text === '') {
+                textarea.setCustomValidity('Text cannot be empty or only whitespace');
+            } else {
+                textarea.setCustomValidity('');
+            }
+        });
+    };
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#tblLeadActivities').dataTable(
+            {
+                "order": [0, 'desc'],
+                "serverside": true,
+                "filter": true,
+                "ajax": {
+                    "url": "/Lead/GetLeadActivities",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columnDefs": [{
+
+                    "visible": true,
+                    "scrollCollapse": true,
+                    "searchable": false
+                }],
+                language: {
+                    "zeroRecords": "No records "
+                },
+                "columns": [
+                    {
+                        "data": "contactDate",
+                        "render": function (data) {
+                            var date = new Date(data);
+                            var month = date.getMonth() + 1;
+                            return date.getDate() + "/" + (month.toString().length > 1 ? month : + month) + "/" + date.getFullYear();
+                        }
+                    },
+                    {
+                        "data": "followUpDate",
+                        "render": function (data) {
+
+                            if (data == null) {
+                                return '';
+                            } else {
+                                var date = new Date(data);
+                                var month = date.getMonth() + 1;
+                                return date.getDate() + "/" + (month.toString().length > 1 ? month : + month) + "/" + date.getFullYear();
+                            }
+
+                            
+                        }
+                    },
+                    { "data": "followUpStage", "name": "followUpStage", "autowidth": true },
+                    { "data": "remarks", "name": "Remarks", "autowidth": true },
+                    { "data": "leadStatus", "name": "leadStatus", "autowidth": true }
+                ],
+            });
+    });
+</script>
+
+<script>
+    $(function () {
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+       // alert(maxDate);
+        $('#txtContactDate').attr('max', maxDate);
+       // $('#txtFollowupdate').attr('max', maxDate);
+    });
+</script>
+
+@*<script>
+    function functionSave() {
+        Swal.fire({
+            title: "Are you sure want to Update this ?",
+            //text: "You clicked the button!",
+            icon: "success"
+        });
+    }
+</script>*@
+

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Re-Assign Upload";
+}
+
+<div class="container-fluid mt-4 p-0 verifier-content">
+    <div class="m-0 mx-5 mt-4 bg-white verifier-sec">
+        <div class="row p-0">
+            <div class="col-12 card-info">
+                <div class="card">
+                    <div class="card-header" style="background-color: #06283a;min-height:40px;">
+                        <h4 class="card-title" style="color: azure;">Lead Re-Assign Upload</h4>
+                    </div>
+                </div>
+                <div class="tab-content" style="border: 3px solid #06283a;">
+                    <!--begin::Tab pane-->
+
+                    <div class="row m-4 justify-content-between" style="border-bottom: none;">
+                        <form enctype="multipart/form-data" asp-controller="Upload">
+                            <div class="col-12 card-info">
+                                <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-4">
+                                            <label for="">Upload the document</label>
+                                            <input type="file" class="form-control" id="FormFile" name="FormFile">
+                                        </div>
+                                        <div style="padding-top:5px;" class="col-md-12">
+                                            <button asp-action="ImportReassigncsvFile" class="btnsave">Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,514 @@
+﻿@{
+    ViewData["Title"] = "Add New Lead";
+}
+
+@model NexGen.Repository.Leads.EntityLeads
+
+
+<link href="https://unpkg.com/tailwindcss@@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
+<div class="container-fluid mt-4 p-0 verifier-content">
+    <div class="m-0 mx-5 mt-4 bg-white verifier-sec">
+        <div class="row p-0">
+            <div class="col-12 card-info">
+                <div class="card">
+                    <div class="card-header" style="background-color: #06283a;min-height:40px;">
+                        <h4 class="card-title" style="color: azure;">Lead Information</h4>
+                    </div>
+                </div>
+                <div class="tab-content" style="border: 3px solid #06283a;">
+                    <form id="form1" enctype="multipart/form-data" asp-controller="CRM">
+                        <div class="row m-4 justify-content-between" style="border-bottom: none;">
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Company Name</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" asp-for="Company_Name" pattern="^\S(.*\S)?$" id="txtcompanyname" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Enquiry Number</label>
+                                    <input type="text" class="form-control" asp-for="EnquiryNumber" id="txtenquirynumber" disabled="disabled">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Company Details</label>
+                                    <textarea rows="4" class="form-control" required asp-for="Company_Details" id="txtcompanydetails"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">City</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="City" id="txtcity" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Country</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="Country" id="txtcity" required>
+
+                                    @*<select data-control="select2" ID="ddlCountry" pattern="^\S(.*\S)?$" asp-for="Country" required Class="form-control">
+                                    <option value="" disabled selected hidden>--Please Select--</option>
+                                    <option>India</option>
+                                    <option>Australia</option>
+                                    <option>Bangladesh</option>
+                                    <option>Belgium</option>
+                                    <option>Botswana</option>
+                                    <option>Canada</option>
+                                    <option>Central African Republic</option>
+                                    <option>Colombia</option>
+                                    <option>Egypt</option>
+                                    <option>France</option>
+                                    <option>Gambia</option>
+                                    <option>Germany</option>
+                                    <option>Ghana</option>
+                                    <option>Hong Kong</option>
+                                    <option>Indonesia</option>
+                                    <option>Ivory Coast</option>
+                                    <option>Kenya</option>
+                                    <option>Malaysia</option>
+                                    <option>Maldives</option>
+                                    <option>Mauritius</option>
+                                    <option>Nepal</option>
+                                    <option>New Zealand</option>
+                                    <option>Nigeria</option>
+                                    <option>Oman</option>
+                                    <option>Philippines</option>
+                                    <option>Qatar</option>
+                                    <option>Congo</option>
+                                    <option>Russia</option>
+                                    <option>Saint Lucia</option>
+                                    <option>Saudi Arabia</option>
+                                    <option>Seychelles</option>
+                                    <option>Singapore</option>
+                                    <option>South Africa</option>
+                                    <option>Spain</option>
+                                    <option>Sri Lanka</option>
+                                    <option>Sweden</option>
+                                    <option>Switzerland</option>
+                                    <option>Taiwan</option>
+                                    <option>Tanzania</option>
+                                    <option>Thailand</option>
+                                    <option>Trinidad and Tobago</option>
+                                    <option>Turkey</option>
+                                    <option>Uganda</option>
+                                    <option>United Arab Emirates</option>
+                                    <option>United Kingdom</option>
+                                    <option>United States</option>
+                                    <option>Vietnam</option>
+                                    <option>Zambia</option>
+                                    <option>Zimbabwe</option>
+                                    <option>Cameroon</option>
+                                    <option>China</option>
+                                    <option>Luxembourg</option>
+                                    <option>Morocco</option>
+                                    <option>Afghanistan</option>
+                                    <option>Aland Islands</option>
+                                    <option>Albania</option>
+                                    <option>Algeria</option>
+                                    <option>American Samoa</option>
+                                    <option>Andorra</option>
+                                    <option>Angola</option>
+                                    <option>Anguilla</option>
+                                    <option>Antigua and Barbuda</option>
+                                    <option>Argentina</option>
+                                    <option>Armenia</option>
+                                    <option>Aruba</option>
+                                    <option>Austria</option>
+                                    <option>Azerbaijan</option>
+                                    <option>Bahamas</option>
+                                    <option>Bahrain</option>
+                                    <option>Barbados</option>
+                                    <option>Belarus</option>
+                                    <option>Belize</option>
+                                    <option>Benin</option>
+                                    <option>Bermuda</option>
+                                    <option>Bhutan</option>
+                                    <option>Bolivia</option>
+                                    <option>Bonaire (NL)</option>
+                                    <option>Bosnia and Herzegovina</option>
+                                    <option>Brazil</option>
+                                    <option>British Virgin Islands</option>
+                                    <option>Brunei</option>
+                                    <option>Bulgaria</option>
+                                    <option>Burkina Faso</option>
+                                    <option>Burundi</option>
+                                    <option>Cambodia</option>
+                                    <option>Cape Verde</option>
+                                    <option>Cayman Islands</option>
+                                    <option>Chad</option>
+                                    <option>Chile</option>
+                                    <option>Christmas Island</option>
+                                    <option>Cocos Islands</option>
+                                    <option>Comoros</option>
+                                    <option>Cook Islands</option>
+                                    <option>Costa Rica</option>
+                                    <option>Croatia</option>
+                                    <option>Cuba</option>
+                                    <option>Curacao</option>
+                                    <option>Cyprus</option>
+                                    <option>Czech Republic</option>
+                                    <option>Democratic Republic of the Congo</option>
+                                    <option>Denmark</option>
+                                    <option>Djibouti</option>
+                                    <option>Dominica</option>
+                                    <option>Dominican Republic</option>
+                                    <option>East Timor</option>
+                                    <option>Ecuador</option>
+                                    <option>El Salvador</option>
+                                    <option>Equatorial Guinea</option>
+                                    <option>Eritrea</option>
+                                    <option>Estonia</option>
+                                    <option>Ethiopia</option>
+                                    <option>Falkland Islands</option>
+                                    <option>Faroe Islands</option>
+                                    <option>Fiji</option>
+                                    <option>Finland</option>
+                                    <option>French Guiana</option>
+                                    <option>French Polynesia</option>
+                                    <option>French Southern Territories</option>
+                                    <option>Gabon</option>
+                                    <option>Georgia</option>
+                                    <option>Gibraltar</option>
+                                    <option>Greece</option>
+                                    <option>Greenland</option>
+                                    <option>Grenada</option>
+                                    <option>Guadeloupe</option>
+                                    <option>Guam</option>
+                                    <option>Guatemala</option>
+                                    <option>Guernsey</option>
+                                    <option>Guinea</option>
+                                    <option>Guinea-Bissau</option>
+                                    <option>Guyana</option>
+                                    <option>Haiti</option>
+                                    <option>Honduras</option>
+                                    <option>Hungary</option>
+                                    <option>Iceland</option>
+                                    <option>Iran</option>
+                                    <option>Iraq</option>
+                                    <option>Ireland</option>
+                                    <option>Isle of Man</option>
+                                    <option>Israel</option>
+                                    <option>Italy</option>
+                                    <option>Jamaica</option>
+                                    <option>Japan</option>
+                                    <option>Jersey</option>
+                                    <option>Jordan</option>
+                                    <option>Kazakhstan</option>
+                                    <option>Kiribati</option>
+                                    <option>Kosovo</option>
+                                    <option>Kuwait</option>
+                                    <option>Kyrgyzstan</option>
+                                    <option>Laos</option>
+                                    <option>Latvia</option>
+                                    <option>Lebanon</option>
+                                    <option>Lesotho</option>
+                                    <option>Liberia</option>
+                                    <option>Libya</option>
+                                    <option>Liechtenstein</option>
+                                    <option>Lithuania</option>
+                                    <option>Macao</option>
+                                    <option>Macedonia</option>
+                                    <option>Madagascar</option>
+                                    <option>Malawi</option>
+                                    <option>Mali</option>
+                                    <option>Malta</option>
+                                    <option>Marshall Islands</option>
+                                    <option>Martinique</option>
+                                    <option>Mauritania</option>
+                                    <option>Mayotte</option>
+                                    <option>Mexico</option>
+                                    <option>Micronesia</option>
+                                    <option>Moldova</option>
+                                    <option>Monaco</option>
+                                    <option>Mongolia</option>
+                                    <option>Montenegro</option>
+                                    <option>Montserrat</option>
+                                    <option>Mozambique</option>
+                                    <option>Myanmar</option>
+                                    <option>Namibia</option>
+                                    <option>Nauru</option>
+                                    <option>Netherlands</option>
+                                    <option>New Caledonia</option>
+                                    <option>Nicaragua</option>
+                                    <option>Niger</option>
+                                    <option>Niue</option>
+                                    <option>Norfolk Island</option>
+                                    <option>North Korea</option>
+                                    <option>Northern Mariana Islands</option>
+                                    <option>Norway</option>
+                                    <option>Pakistan</option>
+                                    <option>Palau</option>
+                                    <option>Palestine</option>
+                                    <option>Panama</option>
+                                    <option>Papua New Guinea</option>
+                                    <option>Paraguay</option>
+                                    <option>Peru</option>
+                                    <option>Pitcairn Islands</option>
+                                    <option>Poland</option>
+                                    <option>Portugal</option>
+                                    <option>Puerto Rico</option>
+                                    <option>Reunion</option>
+                                    <option>Romania</option>
+                                    <option>Rwanda</option>
+                                    <option>Saint Barthelemy</option>
+                                    <option>Saint Helena</option>
+                                    <option>Saint Kitts and Nevis</option>
+                                    <option>Saint Martin</option>
+                                    <option>Saint Pierre and Miquelon</option>
+                                    <option>Saint Vincent and the Grenadines</option>
+                                    <option>Samoa</option>
+                                    <option>San Marino</option>
+                                    <option>Sao Tome and Principe</option>
+                                    <option>Senegal</option>
+                                    <option>Serbia</option>
+                                    <option>Sierra Leone</option>
+                                    <option>Sint Maarten</option>
+                                    <option>Slovakia</option>
+                                    <option>Slovenia</option>
+                                    <option>Solomon Islands</option>
+                                    <option>Somalia</option>
+                                    <option>South Georgia and the South Sandwich Islands</option>
+                                    <option>South Korea</option>
+                                    <option>South Sudan</option>
+                                    <option>Sudan</option>
+                                    <option>Suriname</option>
+                                    <option>Svalbard and Jan Mayen</option>
+                                    <option>Eswatini</option>
+                                    <option>Syria</option>
+                                    <option>Tajikistan</option>
+                                    <option>Togo</option>
+                                    <option>Tonga</option>
+                                    <option>Tunisia</option>
+                                    <option>Turkmenistan</option>
+                                    <option>Turks and Caicos Islands</option>
+                                    <option>Tuvalu</option>
+                                    <option>U.S. Virgin Islands</option>
+                                    <option>Ukraine</option>
+                                    <option>Uruguay</option>
+                                    <option>Uzbekistan</option>
+                                    <option>Vanuatu</option>
+                                    <option>Vatican</option>
+                                    <option>Venezuela</option>
+                                    <option>Wallis and Futuna</option>
+                                    <option>Western Sahara</option>
+                                    <option>Yemen</option>
+                                    <option>Republic of the Congo</option>
+
+                                    </select>*@
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Sector/Industry</label>
+                                    <select data-control="select2" ID="ddlIndustrySector" required asp-for="Sector" Class="form-control">
+                                        <option value="" disabled selected hidden>--Please Select--</option>
+                                        <option>Health Care</option>
+                                        <option>Importer</option>
+                                        <option>Exporter</option>
+                                        <option>Contractor</option>
+                                        <option>Trader</option>
+                                        <option>Manufacturer</option>
+                                        <option>Online Business</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Contact Person</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="ContactPerson" id="txtcontactperson" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Designation</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="Designation" id="txtdesignation" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Mobile Number</label>
+                                    <input type="number" class="form-control" title="please enter number only" pattern="[0-9]+" asp-for="MobileNumber" id="txtmobilenumber" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">E-Mail Id</label>
+                                    <input type="email" class="form-control" title="Text cannot be empty or only whitespace" pattern="[^@@\s]+@@[^@@\s]+\.[^@@\s]+" asp-for="EmailID" id="txtEmailId" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Lead Source Date</label>
+                                    <input type="date" onkeypress="return false" class="form-control" asp-for="LeadSourceDate" id="txtLeadDate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">WhatsApp Number</label>
+                                    <input type="number" class="form-control" pattern="[0-9]+" title="please enter number only" asp-for="WhatsAppNumber" required id="txtEmailId">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Assigned Date</label>
+                                    <input type="date" onkeypress="return false" class="form-control" asp-for="AssignedDate" id="txtAssignDate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" style="background-color: #06283a;min-height:40px;">
+                                <h4 class="card-title" style="color: azure;">Lead Source Information</h4>
+                            </div>
+                        </div>
+                        <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Lead Source</label>
+                                    <select data-control="select2" asp-for="LeadSource" ID="ddlLeadSource" required Class="form-control">
+                                        <option value="" disabled selected hidden>--Please Select--</option>
+                                        <option>LinkedIn</option>
+                                        <option>Website</option>
+                                        <option>Facebooks Ads</option>
+                                        <option>Google Ads</option>
+                                        <option>Website Chat</option>
+                                        <option>Website Form</option>
+                                        <option>Validation Lead</option>
+                                        <option>Calendly</option>
+                                        <option>Scrapping Lead</option>
+                                        <option>Email Marketing Lead</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Instrument Value</label>
+                                    <select data-control="select2" asp-for="InstrumentValue" ID="ddlInstrumentvalue" required Class="form-control">
+                                        <option value="" disabled selected hidden>--Please Select--</option>
+                                        <option>50000 USD to 1 Million USD</option>
+                                        <option>1 Million USD to 2 Million USD</option>
+                                        <option>2 Million USD to 5 Million USD</option>
+                                        <option>5 Million USD to 10 Million USD</option>
+                                        <option>10 Million USD and above</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Assigned To</label>
+                                    <input type="email" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" required placeholder="Xxxx@euroeximbank-sales.com" asp-for="AssignedTo_MailID" id="txtSalesTeam">
+                                    @* <select data-control="select2" ID="ddlSalesAgentName" asp-for="AssignedTo" runat="server" required Class="form-control" AutoPostBack="true">
+                                    <option value="" disabled selected hidden>--Please Select--</option>
+                                    <option>Selva</option>
+                                    </select> *@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Instrument Type</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="IntrumentType" id="txtinsrumenttype" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Instrument Issuance Timeline</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="InstrumentIssuanceTimeline" id="txtInstrumentIssuanceTimeline" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Annual Requirement</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="AnnualRequirement" id="txtAnnualRequirement" required>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="row m-5 justify-content-between" style="border-bottom: none;">
+                           
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Annual TurnOver</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="AnnualTurnOver" id="txtAnnualTurnOver" required>
+                                </div>
+                            </div>
+                          
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                    <label for="">Additional Information</label>
+                                    <input type="text" class="form-control" title="Text cannot be empty or only whitespace" pattern="^\S(.*\S)?$" asp-for="AdditionalInformation" id="txtAdditionalInformation">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mb-4">
+                                </div>
+                            </div>
+                            <div style="padding-top:20px;" class="col-md-12">
+                                <!--begin::Label-->
+                                <!--end::Label-->
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <button asp-action="Leads" formnovalidate class="btnback">Back</button>
+                                <button asp-action="LeadSubmit" class="btnsave">Save</button>
+                                <!--end::Input-->
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script>
+    var frm = document.getelementbyid('form1');
+
+    if (frm.email.type === 'text') {
+        frm.onsubmit = function () {
+            if (/\s/.test(frm.email.value))
+                return false;
+        }
+    }
+</script>
+<script>
+    window.onload = function () {
+        var textarea = document.getElementById('txtcompanydetails');
+
+        textarea.addEventListener('input', function () {
+            var text = textarea.value.trim(); // Remove leading and trailing whitespace
+            if (text === '') {
+                textarea.setCustomValidity('Text cannot be empty or only whitespace');
+            } else {
+                textarea.setCustomValidity('');
+            }
+        });
+    };
+</script>
+<script>
+    $(function () {
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+        // alert(maxDate);
+        $('#txtLeadDate').attr('max', maxDate);
+       // $('#txtAssignDate').attr('max', maxDate);
+    });
+</script>
+

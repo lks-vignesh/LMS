@@ -1,0 +1,107 @@
+﻿@model NexGen.Repository.Leads.EntityUser;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NexGen - Lead Management</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () {
+            null
+        };
+    </script>
+</head>
+<body>
+    <div class="container-fluid row align-items-center full-height m-0 login-bg">
+        <div class="row w-100">
+            <div class="col-sm-7 d-none d-sm-block">
+                <img src="~/img/logo-left.png" alt="logo" class="left-logo mb-3">
+                <p class="ad-text">Lead Management</p>
+                <a href="https://euroeximbank.com/" target="_blank" class="btn btn-primary" style="padding:7px 20px;">Viste our Site</a>
+            </div>
+            <div class="col-sm-5 login-card">
+                <img src="~/img/logo-right.png" alt="logo" class="right-logo">
+                <h3 class="text-center login-card-title">Welcome to Euro Exim Bank</h3>
+                <p class="text-center login-card-sub-title mb-5">Login to your Account</p>
+                <form class="form w-100" id="kt_sign_in_form" method="post" asp-controller="Home" asp-action="LogIn">
+                    <div class="form-group mb-4">
+                        <label for="exampleInputEmail1">EMail ID</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" asp-for="EmailId" placeholder="Enter your EMail ID" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control toggle-input" asp-for="Password" placeholder="Enter your Password" id="password">
+                        <span class="password-showhide">
+                            <span class="password-toggle show-password">Show</span>
+                            <span class="password-toggle hide-password">hide</span>
+                        </span>
+                    </div>
+                    @*<div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input remember-checkbox" id="exampleCheck1">
+                        <label class="form-check-label remember-label" for="exampleCheck1">Remember Me</label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>*@
+                    <div class="login-btn-sec">
+                        <button type="submit" class="btn btn-primary mb-3">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>var hostUrl = "~/";</script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="~/plugins/global/plugins.bundle.js"></script>
+    <script src="~/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used by this page)-->
+    <script src="~/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+    <script src="~/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used by this page)-->
+    <script src="~/js/widgets.bundle.js"></script>
+    <script src="~/js/custom/widgets.js"></script>
+    <script src="~/js/custom/apps/chat/chat.js"></script>
+    <script src="~/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="~/js/custom/utilities/modals/create-app.js"></script>
+    <script src="~/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
+    <!--end::Javascript-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    @await Component.InvokeAsync("Notyf")
+</body>
+</html>
+
+
+

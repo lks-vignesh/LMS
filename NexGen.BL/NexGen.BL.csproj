@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="170.23.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NexGen.DAL\NexGen.DAL.csproj" />
+    <ProjectReference Include="..\NexGen.Logging\NexGen.Logging.csproj" />
+    <ProjectReference Include="..\NexGen.Repository\NexGen.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
